@@ -1,4 +1,4 @@
-# Blockpay ERC20 Token 🚀
+# Blockpay ERC20 Token 
 
 This Repo contains Blockpay token smart contract based on ERC20.
 
