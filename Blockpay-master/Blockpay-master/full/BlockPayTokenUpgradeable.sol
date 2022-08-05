@@ -4,7 +4,21 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
+contract BlockPayTokenUpgradeable is Initializable,OwnableUpgradeable,ERC20Upgradeable {
+   //constructor() ERC20("BlockpayTokenUpgradeable","BP") {
+   // }
+
+    function initialize() external initializer {
+       __ERC20_init("BlockPayTokenUpgradeable","BP");
+       __Ownable_init();
+    }
+
+    function mint(address to, uint amount) external onlyOwner {
+        _mint(to,amount);
+    }
+}
 
 interface IERC20 {
     function balanceOf(address who) external view returns (uint256);
